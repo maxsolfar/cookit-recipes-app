@@ -1,0 +1,87 @@
+.ContainerSearchBar{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.InputSearch {
+  transition: all .7s ease-in;
+  padding: 18px 28px 18px 44px;
+  border-style: none;
+  background: #252C38;
+  border-bottom: 3px solid var(--dark-color);
+  width: 60%;
+  font-size: 1.7rem;
+  border-radius: 10px;
+  color: var(--main-color);
+}   
+
+.InputSearch:focus {
+  transition: all .5s ease-in;
+  border-style: none;
+  border-bottom: 3px solid var(--main-color);
+  outline: none;
+  font-size: 1.7rem;
+  font-weight: 700;
+  background-color: #0E101C;
+}
+
+.InputSearch::placeholder {
+  color: #3E4C64;
+  font-weight: 700;
+}
+
+.IconSearch {
+  content: "";
+  background-image: url(../../../assets/searchbar/icon-search.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  margin: -50px;
+}
+
+.ChefImg{
+  width: 5.5%;
+  margin-right: -30px;
+  z-index: 1;
+}
+
+.ErrorContainer{
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 5%;
+  left: 3%;
+  z-index: 2;
+  transition: 1.7s ease-in-out;
+}
+
+
+.Error{
+  background-color: var(--accent-color);
+  color: var(--clear-color);
+  padding: 18px 44px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.Error img{
+  width: 40px;
+  height: 40px;
+}
+
+.NoError{
+  display: none;
+  transition: 2s ease-in-out;
+}

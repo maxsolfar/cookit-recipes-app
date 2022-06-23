@@ -1,0 +1,439 @@
+.MainContainer,
+.DetailContainer,
+.InfoContainer,
+.TopContainer,
+.MidContainer,
+.LeftInfo,
+.RightInfo,
+.LeftTop,
+.RightTop,
+.Health,
+.Time,
+.Types,
+.DishTypes,
+.DTypes,
+.DishType,
+.Steps,
+.Step,
+.StepContainer,
+.ContainerTitleStep,
+.Diets,
+.TitleSteps,
+.ButtonsBottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.MainContainer{
+  flex-direction: column;
+  width: 100%;
+  margin: 30px 0px;
+  font-family: "Poppins", sans-serif;
+}
+
+.ButtonHome {
+  position: absolute;
+  border-style: none;
+  background-color: #152c54;
+  color: var(--clear-color);
+  font-size: 1.5rem;
+  top: 30px;
+  left: 0;
+  padding: 9px 15px;
+  border-radius: 0px 10px 10px 0px;
+  transition: .9s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.ButtonHome:hover{
+  background-color: var(--main-color);
+  color: var(--clear-color);
+  cursor: pointer;
+  transition: .5s ease-in-out;
+}
+
+.DetailContainer{
+  width: 85%;
+  flex-direction: column;
+  background-color: #F3F3FB;
+  gap: 20px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 2px 2px 4px 0px rgb(21, 21, 21 , 30%);
+}
+
+
+/* *Top Container */
+
+.TopContainer{
+  width: 100%;
+  gap: 10px;
+  border-bottom: 1px solid rgba(92, 95, 104, .2);
+  padding: 0px 20px 20px 20px;
+}
+
+.LeftTop{
+  flex: 0 1 72%;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.Id{
+  background-color: var(--accent-color);
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: var(--clear-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.Title{
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 2.9rem;
+  color: var(--dark-color);
+}
+
+
+.RightTop{
+  flex: 0 1 28%;
+  gap: 30px;
+  padding: 10px 15px;
+  background-color: var(--main-color);
+  width: 100%;
+  border-radius: 10px;
+}
+
+.iconhealthScore{
+  width: 40px;
+  height: 40px;
+}
+
+.Health, .Time{
+  gap: 5px;
+  color: #BFDE42;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: -3px;
+}
+
+.Divider{
+  height: 30px;
+  width: 1px;
+}
+
+.Health b, .Time b{
+  color: var(--clear-color);
+  font-weight: 500;
+}
+
+.iconTime{
+  width: 32px;
+  height: 32px;
+}
+
+/* *Top Container */
+
+
+/* ?Mid Container */
+
+.MidContainer{
+  gap: 50px;
+}
+
+.DishTypes{
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+
+.DishTypes h3{
+  font-size: 1.4rem;
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.DTypes{
+  background-color: var(--accent-color);
+  color: var(--clear-color);
+  width: 80%;
+  border-radius: 10px;
+  padding: 3px;
+  gap: 15px;
+}
+
+.DishType{
+  gap: 5px;
+}
+
+.DishType:nth-child(1)::before{
+  content: "-";
+  margin-right: 15px;
+}
+
+.DishType::after{
+  content: "-";
+  margin-left: 15px;
+}
+
+.IconDish{
+  content: url("../../../assets/detail/icon-dish.png");
+  width: 32px;
+  height: 32px;
+}
+
+
+.LeftInfo{
+  flex: 0 1 35%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.Summary{
+  font-size: 1.4rem;
+  width: 90%;
+}
+
+.Cuisines{
+  position: absolute;
+  display: flex;
+  right: 3%;
+  bottom: 3%;
+  gap: 8px;
+}
+
+.Cuisine{
+  background-color: var(--accent-color);
+  color: var(--clear-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.Types{
+  padding: 10px;
+  gap: 25px;
+}
+
+.Types b{
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.RightInfo{
+  width: 100%;
+  flex: 0 1 60%;
+  flex-direction: column;
+  gap: 20px;
+  
+}
+
+.ImgCard {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* !ICONS */
+.Vegetarian,
+.VegetarianDec,
+.Vegan,
+.VeganDec,
+.GlutenFree,
+.GlutenFreeDec,
+.DairyFree,
+.DairyFreeDec{
+  width: 82.5px;
+  height: 50px;
+}
+
+.Vegetarian{
+  background-image: url("../../../assets/cards/vegetarian-icon-n.svg");
+}
+
+.VegetarianDec{
+  background-image: url("../../../assets/cards/vegetarian-icon-dec-n.svg");
+}
+
+.Vegan{
+  background-image: url("../../../assets/cards/vegan-icon-n.svg");
+}
+
+.VeganDec{
+  background-image: url("../../../assets/cards/vegan-icon-dec-n.svg");
+}
+
+.GlutenFree{
+  background-image: url("../../../assets/cards/gluten-free-icon-n.svg");
+}
+
+.GlutenFreeDec{
+  background-image: url("../../../assets/cards/gluten-free-icon-dec-n.svg");
+}
+
+.DairyFree{
+  background-image: url("../../../assets/cards/dairy-free-icon-n.svg");
+}
+
+.DairyFreeDec{
+  background-image: url("../../../assets/cards/dairy-free-icon-dec-n.svg");
+}
+
+
+.Steps{
+  padding: 20px;
+  justify-content: flex-start;
+  gap: 30px; 
+}
+
+.ContainerTitleStep{
+  flex: 0 1 10%;
+}
+
+.StepContainer{
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 20px;
+  font-size: 1.5rem;
+  flex: 0 1 85%;
+}
+
+.TitleSteps{
+  font-size: 2.8rem;
+  color: var(--dark-color);
+  font-weight: 700;
+  gap: 5px;
+}
+
+.Step{
+  gap: 15px;
+}
+
+.IndexStep{
+  font-family: "Montserrat", sans-serif;
+  color: var(--main-color);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+
+.BottomCard{
+  width: 100%;
+  background-color:#152c54;
+  gap: 20px;
+  padding: 8px 0;
+  
+}
+
+.BottomContainer{
+  background-color: rgba(222, 222, 222, .4);
+  border: 1px solid rgba(222, 222, 222, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.Diets{
+  gap: 15px;
+  color: var(--clear-color);
+  font-size: 1.4rem;
+}
+
+.Diet::after{
+  content: "-";
+  margin-left: 15px;
+}
+
+.Diet:nth-child(1)::before{
+  content: "-";
+  margin-right: 15px;
+}
+
+
+.IconRecipe{
+  content: url("../../../assets/detail/icon-recipe.png");
+  width: 40px;
+  height: 40px;
+}
+
+.IconHome{
+  width: 34px;
+  height: 34px;
+}
+
+.StepCont{
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(21,21,21,.1);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ButtonsBottom{
+  gap: 20px;
+}
+
+.DeleteRecipe, .EditRecipe{
+  border-style: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  transition: .9s ease-in-out;
+  color: var(--clear-color);
+}
+
+.DeleteRecipe{
+  background-color: var(--accent-color);
+}
+
+.EditRecipe{
+  background-color: var(--secondary-color);
+}
+
+.DeleteRecipe:hover, .EditRecipe:hover{
+  cursor: pointer;
+  background-color: var(--main-color);
+  transition: .5s ease-in-out;
+}
+
+
+.imgModal{
+  width: 50%;
+}
+
+.TitleModal{
+  font-family: "Poppins", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: var(--clear-color);
+}
+
+.TextModal{
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--clear-color);
+}
+
+.ButtonOk{
+  border-style: none;
+  margin-top: 20px;
+  padding: 8px 20px;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--clear-color);
+  background-color: var(--accent-color);
+  border-radius: 10px;
+  transition: .9s ease-in-out;
+}
+
+.ButtonOk:hover{
+  cursor: pointer;
+  background-color: var(--dark-color);
+  transition: .5s ease-in-out;
+}
+

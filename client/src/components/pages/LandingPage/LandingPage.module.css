@@ -1,0 +1,123 @@
+.MainContainer, .LandingContainer, .RightContainer, .LeftContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+.MainContainer{
+  width: 100%;
+  height: 100vh;
+}
+
+.LandingContainer{
+  width: 85%;
+  height: 85vh;
+  border-radius: 20px;
+  position: relative;
+  padding: 20px;
+}
+
+.LeftContainer{
+  flex: 0 1 30%;
+  height: 100%;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+
+.Title{
+  font-family: "Montserrat", sans-serif;
+  color: var(--main-color);
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin-top: -20px;
+}
+
+.Subtitle{
+  font-size: 2rem;
+  color: var(--dark-color);
+}
+
+.RightContainer{
+  flex: 0 1 70%;
+  height: 90%;
+  position: relative;
+  background: #F3F3FB;
+  box-shadow: 3px 3px 3px 0px rgba(21,21,21,0.3);
+  border-radius: 20px;
+  align-items: flex-end;
+
+}
+
+.RightBackground{
+  width: 100%;
+  opacity: 1;
+  bottom: 0;
+  z-index: 2;
+  transform: scaleX(-1);
+  border-radius: 0 0 20px 0;
+}
+
+
+
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+
+.Logo{
+  position: absolute;
+  left: 1%;
+  top: 2%;
+  width: 10%;
+}
+
+.ButtonEnter{
+  background-color: var(--main-color);
+  padding: 15px 30px;
+  color: var(--clear-color);
+  border-radius: 10px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-decoration: none;
+
+}
+
+
+
+
+.Pizza{
+  background-image: url("../../../assets/landing/pizza-animation.png");
+  width: 250px;
+  height: 270px;
+  z-index: 4;
+  animation: rotate 30s steps(13) infinite,
+              forward 40s linear infinite;
+}
+
+@keyframes rotate {
+  0%{
+    background-position: 3250px;
+ 
+  }
+  100%{
+    background-position: 0px; 
+  }
+}
+
+@keyframes forward{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

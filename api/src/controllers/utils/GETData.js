@@ -4,7 +4,7 @@ const { URL_RECIPES, URL_RECIPES_INFO } = require("./APIAccess");
 const { API_KEY } = process.env;
 
 /*Number of recipes requested*/
-const nRecipes = 108;
+const nRecipes = 81;
 
 const getAPIData = async () => {
   try {
@@ -21,10 +21,7 @@ const getAPIData = async () => {
           summary: recipe.summary,
           image: recipe.image,
           healthScore: recipe.healthScore,
-          vegetarian: recipe.vegetarian,
-          vegan: recipe.vegan,
-          glutenFree: recipe.glutenFree,
-          dairyFree: recipe.dairyFree,
+          readyInMinutes: recipe.readyInMinutes,
           cuisines: recipe.cuisines?.map((cuisine) => cuisine),
           diets: recipe.diets?.map((diet) => diet),
           created: false,
@@ -50,19 +47,14 @@ const getAPIDataDetail = async (id) => {
       healthScore: APIData.data.healthScore,
       steps: APIData.data.analyzedInstructions
         ?.map((instruction) =>
-          instruction.steps?.map((step) => step.step.split("\n"))
-        )
-        .flat(2),
-      vegetarian: APIData.data.vegetarian,
-      vegan: APIData.data.vegan,
-      glutenFree: APIData.data.glutenFree,
-      dairyFree: APIData.data.dairyFree,
+          instruction.steps?.flatMap((step) => [step.step])
+        ).flat(1),
+      readyInMinutes: APIData.data.readyInMinutes,
       cuisines: APIData.data.cuisines?.map((cuisine) => cuisine),
       dishTypes: APIData.data.dishTypes?.map((type) => type),
       diets: APIData.data.diets?.map((diet) => diet),
       created: false,
     };
-  
     return Recipe;
   } catch (error) {
     console.log(`GET API DATA ${error}`);
@@ -96,6 +88,7 @@ const getDBData = async () => {
         },
       ],
     });
+
     return DBData;
   } catch (error) {
     console.log(`GET DB DATA ${error}`);

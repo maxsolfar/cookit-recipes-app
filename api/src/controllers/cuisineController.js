@@ -58,9 +58,9 @@ const getCuisines = async (req, res, next) => {
           name: cuisine.name,
       }
     });
-    res.send(cuisines);
+    return res.send(cuisines);
   } catch (error) {
-    res.status(400).send(`Can't get All CUISINES: ${error}`);
+    return res.status(400).send(`Can't get All CUISINES: ${error}`);
   }
 };
 

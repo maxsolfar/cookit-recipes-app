@@ -30,24 +30,8 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
     }, 
-    vegetarian: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      allowNull: true,
-    },
-    vegan: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      allowNull: true,
-    },
-    glutenFree: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      allowNull: true,
-    },
-    dairyFree:{
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
+    readyInMinutes:{
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     created: {

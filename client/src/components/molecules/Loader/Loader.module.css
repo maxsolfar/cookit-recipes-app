@@ -1,0 +1,61 @@
+.ContainerLoader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: url("../../../assets/header/background-body3.jpg");
+}
+
+.ContainerRain {
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+  margin-bottom: -100px;
+  width: 300px;
+  height: 500px;
+}
+
+.BookFood {
+  z-index: 10;
+  animation: scale 2s ease-in-out infinite;
+}
+
+.Loading{
+  width: 10%;
+  margin-top: 10px;
+  animation: scale 2s ease-in-out infinite;
+}
+
+.FoodA {
+  background-image: url("../../../assets/loader/rain-food.png");
+  width: 300px;
+  height: 1500px;
+  z-index: 3;
+  animation: forward 7s linear infinite;
+}
+
+@keyframes forward {
+  0% {
+    transform: translateY(-1500px);
+  }
+  100% {
+    transform: translateY(600px);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+

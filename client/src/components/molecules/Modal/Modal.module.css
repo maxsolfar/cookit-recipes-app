@@ -1,0 +1,26 @@
+.MainContainer, .ModalContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.MainContainer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(21,21,21,.9);
+}
+
+.ModalContainer{
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  padding: 20px 10px;
+  background-color: var(--main-color);
+  font-family: "Montserrat", sans-serif;
+}
+

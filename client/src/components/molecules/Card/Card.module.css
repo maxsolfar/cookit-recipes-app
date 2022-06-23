@@ -1,0 +1,235 @@
+.Card,
+.LeftCard,
+.RightCard,
+.Diets,
+.BottomCard,
+.Types,
+.Health,
+.Time,
+.Aside,
+.Info,
+.Title {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.Card {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  background-color:#F3F3FB;
+  box-shadow: 2px 2px 2px 0px rgb(21 21 21 / 15%);
+  color: var(--dark-color);
+  gap: 30px;
+  border-radius: 15px;
+  padding: 20px 10px;
+}
+
+.Card:nth-child(even){
+  border: solid var(--main-color);
+  border-width: 1px 0px 0px 3px;
+}
+
+.Card:nth-child(odd){
+  border: solid var(--secondary-color);
+  border-width: 1px 0px 0px 3px;
+}
+
+.ImgCard {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.Cuisines{
+  position: absolute;
+  display: flex;
+  right: 3%;
+  bottom: 3%;
+  gap: 8px;
+}
+.Cuisine{
+ 
+  background-color: var(--accent-color);
+  color: var(--clear-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.LeftCard{
+  flex-direction: column;
+  gap: 10px;
+  flex: 0 0 23%;
+  position: relative;
+}
+
+.RightCard {
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  flex: 0 0 72%;
+}
+
+.Title{
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  transition: .9s ease-in-out;
+  padding: 5px;
+  gap: 10px;
+}
+
+.Title:hover{
+  color: var(--main-color);
+  transition: .5s ease-in-out;
+}
+
+.Summary{
+  font-size: 1.4rem;
+}
+
+.Info{
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+
+.Aside{
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 15px;
+  background-color: var(--main-color);
+  width: 16%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+.CardLink{
+  text-decoration: none;
+}
+
+
+.Health, .Time{
+  flex-direction: column;
+  gap: 3px;
+  color: var(--clear-color);
+  font-size: 1.1rem;
+}
+.Health{
+  margin-bottom: 1px solid var(--clear-color);
+}
+
+.iconhealthScore{
+  width: 40px;
+  height: 40px;
+}
+.HealthScore, .Minutes{
+  color: #BFDE42;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: -3px;
+}
+
+.iconTime{
+  width: 32px;
+  height: 32px;
+}
+
+.Types{
+  gap: 20px;
+}
+
+.Types b{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* !ICONS */
+.Vegetarian,
+.VegetarianDec,
+.Vegan,
+.VeganDec,
+.GlutenFree,
+.GlutenFreeDec,
+.DairyFree,
+.DairyFreeDec{
+  width: 82.5px;
+  height: 50px;
+}
+
+.Vegetarian{
+  background-image: url("../../../assets/cards/vegetarian-icon-n.svg");
+}
+
+.VegetarianDec{
+  background-image: url("../../../assets/cards/vegetarian-icon-dec-n.svg");
+}
+
+.Vegan{
+  background-image: url("../../../assets/cards/vegan-icon-n.svg");
+}
+
+.VeganDec{
+  background-image: url("../../../assets/cards/vegan-icon-dec-n.svg");
+}
+
+.GlutenFree{
+  background-image: url("../../../assets/cards/gluten-free-icon-n.svg");
+}
+
+.GlutenFreeDec{
+  background-image: url("../../../assets/cards/gluten-free-icon-dec-n.svg");
+}
+
+.DairyFree{
+  background-image: url("../../../assets/cards/dairy-free-icon-n.svg");
+}
+
+.DairyFreeDec{
+  background-image: url("../../../assets/cards/dairy-free-icon-dec-n.svg");
+}
+
+
+.BottomCard {
+  flex-direction: column;
+  border-top: 1px solid rgba(92, 95, 104, .2);
+  width: 100%;
+  overflow: hidden;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+.Diets{
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 500;
+  gap: 12px;
+  padding: 5px 0px 0px 0px;
+}
+
+.DietsRecipe{
+  font-family: "Montserrat", sans-serif;
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.Diet{
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: var(--clear-color);
+}
+
+.Diet:nth-child(even){
+  background-color: var(--main-color);
+}
+
+.Diet:nth-child(odd){
+  background-color: var(--dark-color);
+}
+
+.LeafIcon{
+  width: 20px;
+  height: 20px;
+}

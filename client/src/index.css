@@ -1,13 +1,77 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500&display=swap');
+
+:root{
+	/* COLORS VARIABLES */
+	--main-color:#3b65f5;
+	--secondary-color:#3EA76C;
+	--accent-color:#ec2f76;
+	--clear-color:#f9f9f9;
+	--semi-dark-color: #898d9a;
+	--semi-clear-color: #dedede;
+	--dark-color:#5c5f68;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  font-family: Poppins, sans-serif;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+
 }
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, em, img, strong, b, u, i, ol, ul, li, form, label, tr, th, td,
+article, aside, figure, figcaption, footer, header, nav, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url("../src/assets/header/background-body3.jpg");
+	overflow-x: hidden;
+}
+
+
+
+*::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+*::-webkit-scrollbar:vertical {
+  width:15px;
+}
+
+*::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+*::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+body::-webkit-scrollbar-track {
+  background: #252C38;
+}
+
+
+hr{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #BFDE42;
+}
+
+

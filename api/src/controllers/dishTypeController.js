@@ -46,9 +46,9 @@ const getDishTypes = async (req, res, next) => {
           name: type.name,
       }
     });
-    res.send(types);
+    return res.send(types);
   } catch (error) {
-    res.status(400).send(`Can't get All DISH TYPES: ${error}`);
+    return res.status(400).send(`Can't get All DISH TYPES: ${error}`);
   }
 };
 

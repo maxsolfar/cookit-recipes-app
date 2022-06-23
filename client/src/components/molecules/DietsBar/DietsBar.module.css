@@ -1,0 +1,180 @@
+.MainContainer, .DietsContainer, .Diet, .LeftButton, .RightButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.MainContainer{
+  width: 100%;
+}
+
+.DietsContainer{
+  width: 520px;
+  height: 115px;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+  padding: 5px;
+}
+
+.DietsContainer::-webkit-scrollbar{
+  display: none;
+}
+
+.Diet{
+  flex-direction: column;
+  background-color: var(--clear-color);
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--main-color);
+  max-width: 120px;
+  min-width: 120px;
+  height: 105px;
+  box-shadow: 0px 0px 5px 0px rgba(66,66,66,0.40);
+  transition: 1s ease-in-out;
+}
+
+.Diet:hover {
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: var(--clear-color);
+  transition: .7s ease-in-out;
+}
+
+.TitleDiet {
+  font-family: "Montserrat";
+  font-size: 1.17rem;
+  font-weight: 700;
+  
+}
+
+.LeftButton, .RightButton{
+  background-color: var(--main-color);
+  border-radius: 50%;
+  border-style: none;
+  padding: 10px;
+  width: 34px;
+  height: 34px;
+
+  transition: .9s ease-in-out;
+}
+
+.LeftButton:hover, .RightButton:hover{
+  transform: scale(1.07);
+  cursor: pointer;
+  transition: .7s ease-in-out;
+}
+
+.LeftButton img, .RightButton img{
+  width: 15px;
+}
+
+.iconGluten,
+.iconDairy,
+.iconKetogenic,
+.iconVegetarian,
+.iconVegan,
+.iconLactoVegatarian,
+.iconPescetarian,
+.iconPaleo,
+.iconPrimal,
+.iconLowFodMap,
+.iconWhole30 {
+  width: 65px;
+  height: 65px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.iconGluten{
+  background-image: url("../../../assets/diets/gluten-free.svg");
+}
+
+.iconGluten:hover{
+  background-image: url("../../../assets/diets/gluten-free-hover.svg");
+}
+
+.iconKetogenic{
+  background-image: url("../../../assets/diets/ketogenic.svg");
+} 
+
+.iconKetogenic:hover{
+  background-image: url("../../../assets/diets/ketogenic-hover.svg");
+}
+
+.iconVegetarian{
+  background-image: url("../../../assets/diets/vegetarian.svg");
+} 
+
+.iconVegetarian:hover{
+  background-image: url("../../../assets/diets/vegetarian-hover.svg");
+}
+
+.iconVegan{
+  background-image: url("../../../assets/diets/vegan.svg");
+} 
+
+.iconVegan:hover{
+  background-image: url("../../../assets/diets/vegan-hover.svg");
+}
+
+.iconLactoVegatarian{
+  background-image: url("../../../assets/diets/lacto-vegetarian.svg");
+} 
+
+.iconLactoVegatarian:hover{
+  background-image: url("../../../assets/diets/lacto-vegetarian-hover.svg");
+}
+
+.iconDairy{
+  background-image: url("../../../assets/diets/dairy-free.svg");
+}
+.iconDairy:hover{
+  background-image: url("../../../assets/diets/dairy-free-hover.svg");
+}
+
+.iconPescetarian{
+  background-image: url("../../../assets/diets/pescetarian.svg");
+} 
+
+.iconPescetarian:hover{
+  background-image: url("../../../assets/diets/pescetarian-hover.svg");
+}
+
+.iconPaleo{
+  background-image: url("../../../assets/diets/paleo.svg");
+} 
+
+.iconPaleo:hover{
+  background-image: url("../../../assets/diets/paleo-hover.svg");
+}
+
+.iconPrimal{
+  background-image: url("../../../assets/diets/primal.svg");
+} 
+
+.iconPrimal:hover{
+  background-image: url("../../../assets/diets/primal-hover.svg");
+}
+
+.iconLowFodMap{
+  background-image: url("../../../assets/diets/low-fodmap.svg");
+} 
+
+.iconLowFodMap:hover{
+  background-image: url("../../../assets/diets/low-fodmap-hover.svg");
+}
+
+.iconWhole30{
+  background-image: url("../../../assets/diets/whole30.svg");
+} 
+
+.iconWhole30:hover{
+  background-image: url("../../../assets/diets/whole30-hover.svg");
+}
+
+

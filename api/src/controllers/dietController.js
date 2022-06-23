@@ -2,16 +2,15 @@ const { Diet } = require("../db");
 
 const DIETS = [
     "Gluten Free",
+    "Dairy Free",
     "Ketogenic",
-    "Vegetarian",
-    "Lacto-Vegetarian",
-    "Ovo-Vegetarian",
+    "Lacto Ovo Vegetarian",
     "Vegan",
-    "Pescetarian",
-    "Paleo",
+    "Pescatarian",
+    "Paleolithic",
     "Primal",
-    "Low FODMAP",
-    "Whole30"
+    "Fodmap Friendly",
+    "Whole 30"
 ]
 
 /*
@@ -43,9 +42,9 @@ const getDiets = async (req, res, next) => {
           name: diet.name,
       }
     });
-    res.send(diets);
+    return res.send(diets);
   } catch (error) {
-    res.status(400).send(`Can't get All DIETS: ${error}`);
+    return res.status(400).send(`Can't get All DIETS: ${error}`);
   }
 };
 

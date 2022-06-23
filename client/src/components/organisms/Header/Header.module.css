@@ -1,0 +1,79 @@
+.Header{
+  width: 100%;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Paint{
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: -15%;
+  z-index: -1;
+}
+
+.LeftSide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 0 1 65%;
+  width: 100%;
+  height: 100%;
+}
+
+.RightSide{
+  flex: 0 1 30%;
+}
+
+.Dish{
+  background-image: url("../../../assets/header/dishes.png");
+  width: 500px;
+  height: 500px;
+  margin-top: -15%;
+  z-index: 4;
+  animation: rotate 7s steps(3) infinite,
+              forward 50s linear infinite;
+}
+
+@keyframes rotate {
+  0%{
+    background-position: 0px;
+ 
+  }
+  100%{
+    background-position: 1500px; 
+  }
+}
+
+@keyframes forward{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.Title{
+  font-family: "Montserrat", sans-serif;
+  color: var(--main-color);
+  font-size: 4.4rem;
+  font-weight: 800;
+}
+
+.Subtitle{
+  font-family: "Poppins", sans-serif;
+  color: var(--semi-dark-color);
+  font-size: 2rem;
+}
+
+.TypesTitle{
+  font-family: "Poppins", sans-serif;
+  color: var(--main-color);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
