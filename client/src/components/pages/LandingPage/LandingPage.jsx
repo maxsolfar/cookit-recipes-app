@@ -16,7 +16,7 @@ function LandingPage() {
         <section className={styles.LandingContainer}>
           <div className={styles.LeftContainer}>
             <img className={styles.Logo} src={logo} alt="circle-animation" />
-            <caption className={styles.Pizza}alt="pizza-animation"></caption>
+            <div className={styles.Pizza}alt="pizza-animation"></div>
             <h2 className={styles.Title}>Welcome to Cookit</h2>
             <span className={styles.Subtitle}>Here you will find the best recipes of dishes from around the world.</span>
             <Link to="/recipes" className={styles.ButtonEnter}>Let´s Cook</Link>

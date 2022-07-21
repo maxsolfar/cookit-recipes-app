@@ -4,7 +4,7 @@ const { URL_RECIPES, URL_RECIPES_INFO } = require("./APIAccess");
 const { API_KEY } = process.env;
 
 /*Number of recipes requested*/
-const nRecipes = 81;
+const nRecipes = 108;
 
 const getAPIData = async () => {
   try {

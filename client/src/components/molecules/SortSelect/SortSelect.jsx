@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { useDispatch } from "react-redux";
-import { sortNAME, sortSCORE, filterOrigin, refreshData, getPage} from "../../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { sortNAME, sortSCORE, filterOrigin, refreshData, getPage, filterByDiet} from "../../../redux/actions";
 
 import styles from "./SortSelect.module.css";
 import refreshIcon from "../../../assets/loader/refresh.png";
@@ -8,17 +8,18 @@ import refreshIcon from "../../../assets/loader/refresh.png";
 function SortSelect({paginate}) {
 
   const dispatch = useDispatch();
+  const {currentDiet} = useSelector((state) => state);
 
   const initialSelects = {
     sortName: "",
     dataFrom: "",
   }
   const [filterSelects, setFilterSelects] = useState(initialSelects); 
+  const [newSearch, setNewSearch] = useState(false); 
 
   function handleChange(e){
     e.preventDefault();
-    paginate(1);
-    dispatch(getPage(1));
+    
     filterSelects[e.target.name] = e.target.value;
     e.target.value === "A-Z" && dispatch(sortNAME("A-Z"));
     e.target.value === "Z-A" && dispatch(sortNAME("Z-A"));
@@ -27,6 +28,12 @@ function SortSelect({paginate}) {
     e.target.value === "DB" && dispatch(filterOrigin("DB"));
     e.target.value === "API" && dispatch(filterOrigin("API"));
     e.target.value === "ALL" && dispatch(refreshData());
+
+    if(currentDiet !== ""){
+      dispatch(filterByDiet(currentDiet));
+    }
+    paginate(1);
+    dispatch(getPage(1));
   }
 
   function refreshRecipes(e){

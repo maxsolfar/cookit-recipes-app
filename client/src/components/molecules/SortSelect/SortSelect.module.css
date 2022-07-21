@@ -16,6 +16,7 @@
   transition: .7s ease-in-out;
 }
 
+
 .Select {
   /* Reset */
   appearance: none;
@@ -58,3 +59,21 @@
 }
 
 
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+} 
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+
+  .IconRefresh{
+    display: none;
+  }
+
+  .Select{
+    width: 17rem;
+    font-size: 1.2rem;
+  }
+}

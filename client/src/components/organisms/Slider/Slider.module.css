@@ -67,7 +67,7 @@
   position: absolute;
   width: 28%;
   bottom: -10%;
-  right: -10%;
+  right: -5%;
   z-index: 10;
   animation: scale 5s ease-in-out infinite;
 }

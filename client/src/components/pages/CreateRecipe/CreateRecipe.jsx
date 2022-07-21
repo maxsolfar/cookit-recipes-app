@@ -63,19 +63,32 @@ function CreateRecipe() {
     );
   };
 
+
+
   const addStep = (e, value) => {
     e.preventDefault();
-    setInput({
-      ...input,
-      steps: [...input.steps, value],
-      stepValue: "",
-    });
-    setInputErrors(
-      validateInput({
+    if(input.stepValue !== ""){
+      setInput({
         ...input,
         steps: [...input.steps, value],
-      })
-    );
+        stepValue: "",
+      });
+      setInputErrors(
+        validateInput({
+          ...input,
+          steps: [...input.steps, value],
+        })
+      );
+    }
+    else{
+      setInputErrors(
+        validateInput({
+          ...input,
+          steps: [...input.steps, value]
+        })
+      )
+    }
+  
   };
 
   const removeList = (e, index) => {
@@ -383,7 +396,7 @@ function CreateRecipe() {
                   <div className={styles.StepButtonAdd}>
                     {input.steps.length < 8 && (
                       <button
-                        disabled={inputErrors.stepValue && true}
+                        disabled={input.stepValue === "" && true}
                         onClick={(e) => addStep(e, input.stepValue)}
                       >
                         Add Step

@@ -20,6 +20,9 @@
 }
 
 .BookFood {
+  background-image: url("../../../assets/loader/food-book.png");
+  width: 452px;
+  height: 153px;
   z-index: 10;
   animation: scale 2s ease-in-out infinite;
 }
@@ -59,3 +62,24 @@
   }
 }
 
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+}
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .BookFood {
+    background-image: url("../../../assets/loader/food-book-mobile.png");
+    width: 350px;
+    height: 118px;
+    z-index: 10;
+    animation: scale 2s ease-in-out infinite;
+  }
+  .FoodA {
+    transform: scale(.8);
+  }
+  .Loading{
+    width: 40%;
+  }
+}

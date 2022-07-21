@@ -1,16 +1,17 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./DietsBar.module.css";
 
 import arrowLeft from "../../../assets/diets/left-icon-white.png";
 import arrowRight from "../../../assets/diets/right-icon-white.png";
 
-import { filterByDiet, getPage } from "../../../redux/actions";
+import { filterByDiet, getPage, activeDiet } from "../../../redux/actions";
 
 function DietsBar({paginate}) {
 
   const dispatch = useDispatch();
+  const {currentDiet} = useSelector((state)=> state);
 
   const recipes = [
     { icon: "iconGluten", title: "Gluten Free", value: "Gluten Free" },
@@ -37,10 +38,30 @@ function DietsBar({paginate}) {
     slider.scrollLeft = slider.scrollLeft + 130;
   }
 
+ /*  function handleSubmit(diet){
+    if(currentDiet.includes(diet)){
+      dispatch(cleanDiet(diet));
+    }
+    else{
+      paginate(1);
+      dispatch(getPage(1));
+      dispatch(filterByDiet(diet));
+      dispatch(activeDiet(diet));
+    }
+   
+  }
+ */
   function handleSubmit(diet){
-    paginate(1);
-    dispatch(getPage(1));
-    dispatch(filterByDiet(diet));
+    if(currentDiet === diet){
+      dispatch(activeDiet());
+    }
+    else{
+      paginate(1);
+      dispatch(getPage(1));
+      dispatch(filterByDiet(diet));
+      dispatch(activeDiet(diet));
+    }
+   
   }
 
   return (
@@ -51,7 +72,7 @@ function DietsBar({paginate}) {
       <div id="slider" className={styles.DietsContainer}>
         {recipes && recipes?.map((recipe, index) =>
           (
-            <article key={index} className={styles.Diet} onClick={() => handleSubmit(recipe.value)}>
+            <article key={index} className={currentDiet === recipe.value ? styles.DietActive : styles.Diet} onClick={() => handleSubmit(recipe.value)}>
               <caption className={`${styles[recipe.icon]}`}></caption>
               <h4 className={styles.TitleDiet}>{recipe.title}</h4>
             </article>

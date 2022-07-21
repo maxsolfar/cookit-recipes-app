@@ -9,9 +9,12 @@ export const GET_CUISINES = "GET_CUISINES";
 export const GET_DISHTYPES = "GET_DISHTYPES";
 
 export const POST_RECIPES = "POST_RECIPES";
+export const DELETE_RECIPE = "DELETE_RECIPE";
+export const UPDATE_RECIPE = "UPDATE_RECIPE";
 
 /* Current Page for Pagination*/
 export const CURRENT_PAGE = "CURRENT_PAGE";
+export const NUMBER_PAGES = "NUMBER_PAGES";
 export const REFRESH_DATA = "REFRESH_DATA";
 
 /* Sorts */
@@ -21,7 +24,7 @@ export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 
 /* Filter by Diet */
 export const FILTER_BY_DIET = "FILTER_BY_DIET";
-
+export const CURRENT_DIET = "CURRENT_DIET";
 
 /*Errors */
 export const SET_ERRORS = "SET_ERRORS";
@@ -47,7 +50,6 @@ function getRecipesByName(name) {
       const recipesByName = await axios.get(
         `http://localhost:3001/recipes?name=${name}`
       );
-      console.log("fa", recipesByName);
       if(recipesByName.data.length > 0)
       {
         return dispatch({
@@ -95,6 +97,40 @@ function getRecipeDetail(id){
     }
   };
 }
+
+
+
+/* Delete */
+function deleteRecipe(id){
+  return async function (dispatch) {
+    try {
+      await axios.delete(`http://localhost:3001/recipes/${id}`);
+      return dispatch({
+        type: DELETE_RECIPE,
+      });
+    } catch (error) {
+      console.log(`DeleteRecipe ${error}`);
+    }
+  };
+}
+
+/* Update */
+function editRecipe(id){
+  return async function (dispatch) {
+    try {
+      const updatedRecipe = await axios.put(`http://localhost:3001/recipes/${id}`);
+      console.log(updatedRecipe);
+      return dispatch({
+        type: UPDATE_RECIPE,
+        payload: updatedRecipe,
+      });
+    } catch (error) {
+      console.log(`UpdateRecipe ${error}`);
+    }
+  };
+}
+
+  
 
 
 function getDiets(){
@@ -164,6 +200,13 @@ function getPage(num){
   }
 }
 
+function nPages(number){
+  return {
+    type: NUMBER_PAGES,
+    payload: number,
+  }
+}
+
 function refreshData(){
   return {
     type: REFRESH_DATA,
@@ -217,6 +260,22 @@ function filterByDiet(name){
   };
 }
 
+function activeDiet(name){
+  if(name){
+    return {
+      type: CURRENT_DIET,
+      payload: name,
+    };
+  }
+  else{
+    return {
+      type: CURRENT_DIET,
+      payload: "",
+    };
+  }
+}
+
+
 export { 
   getAllRecipes,
   getRecipesByName,
@@ -233,4 +292,8 @@ export {
   filterOrigin,
   refreshErrors,
   setErrors,
+  deleteRecipe,
+  editRecipe,
+  activeDiet,
+  nPages,
 };

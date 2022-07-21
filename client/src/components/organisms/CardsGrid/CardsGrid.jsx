@@ -1,4 +1,4 @@
-import React, {useState}  from 'react';
+import React, {useState, useEffect}  from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./CardsGrid.module.css";
@@ -9,7 +9,7 @@ import Pagination from "../Pagination/Pagination";
 import Header from "../../organisms/Header/Header";
 import SortSelect from '../../molecules/SortSelect/SortSelect';
 
-import { refreshErrors, refreshData } from "../../../redux/actions";
+import { refreshErrors, refreshData, activeDiet, nPages } from "../../../redux/actions";
 
 import background from "../../../assets/header/vector-background2.png";
 import imgNoRecipes from "../../../assets/loader/NO-RECIPES.png";
@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CardsGrid() {
 
-  const { allRecipes, recipes, savedPage, errors } = useSelector((state)=> state);
+  const { allRecipes, recipes, savedPage, errors, numberPages } = useSelector((state)=> state);
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function CardsGrid() {
    * Pagination
    */
   const [currentPage, setCurrentPage] = useState(savedPage);
-  const [recipesPerPage] = useState(9);
+  const [recipesPerPage, setRecipesPerPage] = useState(9);
 
   
   const paginate = (pageNumber) => {
@@ -44,7 +44,20 @@ function CardsGrid() {
   function goNewRecipe(){
     navigate("/new-recipe");
   }
+  
+  function refreshPage(e){
+    e.preventDefault();
+    dispatch(refreshData());
+    dispatch(activeDiet());
+  }
  
+  useEffect(()=>{
+    if(window.innerWidth < 800){
+      setRecipesPerPage(5);
+      dispatch(nPages(3));
+    }
+  },[dispatch]);
+
   return (
     <> 
       {
@@ -66,8 +79,9 @@ function CardsGrid() {
           <img className={styles.imgModal} src={imgNoRecipes}  alt="no-recipes-img"/>
           <h2 className={styles.TitleModal}>No Recipes</h2>
           <span className={styles.TextModal}>No recipes found for your search</span>
-          <button className={styles.ButtonOk} onClick={()=> dispatch(refreshData())}>Reload</button>
-        </Modal> : 
+          <button className={styles.ButtonOk} onClick={(e)=> refreshPage(e)}>Reload</button>
+        </Modal>
+      : 
       <>
 
       <section className={styles.MainContainer}>
@@ -104,6 +118,7 @@ function CardsGrid() {
         totalRecipes={recipes.length}
         paginate={paginate}
         currentPage={currentPage}
+        numberLimit={numberPages}
         />
 
       </>

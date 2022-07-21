@@ -21,14 +21,7 @@ const getAllRecipes = async (req, res, next) => {
           );
           const dataByName = [...dataDBFilter, ...dataAPIFilter];
           res.send(dataByName);
-          /* if(dataByName.length > 1){
-            res.send(dataByName);
-          }
-          else{
-            res
-            .status(404)
-            .send(`Recipes with name: ${name} doesn't exist`);
-          } */
+          
         } catch (error) {
           res.status(404).send(`Recipes with name: ${name}: ${error}`);
         }
@@ -168,8 +161,79 @@ const postRecipe = async (req, res, next) => {
   }
 };
 
+
+const deleteRecipe = async (req, res, next) => {
+  try {
+    const { idRecipe } = req.params;
+    const findRecipe = await Recipe.findByPk(idRecipe);
+    if (findRecipe) {
+      await findRecipe.destroy();
+      return res.status(200).send("Recipe was Delete");
+    }
+  } catch (error) {
+    res.status(400).send({ error: "Can't Delete the recipe" });
+  }
+};
+
+const editRecipe = async (req, res, next) => {
+  try {
+    const { idRecipe } = req.params;
+    const {
+      title,
+      summary,
+      image,
+      healthScore,
+      steps,
+      cuisines,
+      dishTypes,
+      readyInMinutes,
+      diets
+    } = req.body;
+
+    const recipe = await Recipe.findOne({
+      where: { id: idRecipe },
+    });
+
+    const recipeUpdate = await recipe.update({
+      title,
+      summary,
+      image,
+      healthScore,
+      steps,
+      readyInMinutes,
+    });
+
+    const dietsDb = await Diet.findAll({
+      where: { name: diets },
+    });
+
+    const dishTypesDb = await DishType.findAll({
+      where: { name: dishTypes },
+    });
+
+    const cuisinesDb = await Cuisine.findAll({
+      where: { name: cuisines },
+    });
+
+    recipeUpdate.setDiets(dietsDb);
+    recipeUpdate.setDishTypes(dishTypesDb);
+    recipeUpdate.setCuisines(cuisinesDb);
+
+    return res.status(200).send(recipeUpdate);
+    
+  } catch (error) {
+    res.status(400).send({ error: "Can't Update the recipe" + error } );
+  }
+};
+
+
+  
+
+
 module.exports = {
   getAllRecipes,
   getRecipeDetail,
   postRecipe,
+  deleteRecipe,
+  editRecipe
 };

@@ -12,11 +12,12 @@
 }
 
 .LandingContainer{
-  width: 85%;
-  height: 85vh;
+  width: 90%;
+  height: 90vh;
   border-radius: 20px;
   position: relative;
   padding: 20px;
+  margin-top: 10px;
 }
 
 .LeftContainer{
@@ -30,13 +31,14 @@
 .Title{
   font-family: "Montserrat", sans-serif;
   color: var(--main-color);
-  font-size: 3.8rem;
+  font-size: 3.6rem;
   font-weight: 700;
   margin-top: -20px;
 }
 
 .Subtitle{
-  font-size: 2rem;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
   color: var(--dark-color);
 }
 
@@ -76,7 +78,7 @@
 .Logo{
   position: absolute;
   left: 1%;
-  top: 2%;
+  top: 1%;
   width: 10%;
 }
 
@@ -90,8 +92,6 @@
   text-decoration: none;
 
 }
-
-
 
 
 .Pizza{
@@ -119,5 +119,51 @@
   }
   100%{
     transform: rotate(360deg);
+  }
+}
+
+
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .LandingContainer{
+    flex-direction: column;
+  }
+  .Logo{
+    width: 25%;
+  }
+}
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .RightContainer{
+    display: none;
+  }
+  .Logo{
+    width: 30%;
+    right: 1%;
+    margin: auto;
+  }
+  .Pizza{
+    transform: scale(.5);
+  }
+  .LandingContainer{
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+  }
+  .LeftContainer{
+    flex: 0 1 100%;
+  }
+  .Title{
+    margin-top: 0;
+    font-size: 3rem;
+  }
+  .Subtitle{
+    font-size: 1.5rem;
+  }
+  .ButtonEnter{
+    padding: 12px 24px;
+    font-size: 1.5rem;
   }
 }

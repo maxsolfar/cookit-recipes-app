@@ -437,3 +437,117 @@
   transition: .5s ease-in-out;
 }
 
+
+
+/* Media queries for mid-size devices (Laptop) */
+@media screen and (min-device-width: 1024px) and (max-device-width: 1424px) {
+  .LeftTop{
+    flex: 0 1 60%;
+  }
+  .RightTop{
+    flex: 0 1 40%;
+  }
+  .Id{
+    display: none;
+  }
+  .MidContainer{
+    gap: 20px;
+  }
+} 
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .LeftTop{
+    flex: 0 1 65%;
+  }
+  .RightTop{
+    flex-direction: column;
+    flex: 0 1 35%;
+    gap: 15px;
+  }
+  .Divider{
+    width: 100%;
+    height: 0px;
+  }
+  .MidContainer{
+    gap: 20px;
+  }
+  .Id{
+    display: none;
+  }
+  .ButtonHome{
+    flex-direction: row;
+    top: 0px;
+    align-items: center;
+    padding: 5px 12px;
+  }
+} 
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .DetailContainer{
+    margin-top: 20px;
+    width: 92%;
+    padding: 20px 10px;
+  }
+
+  .TopContainer{
+    flex-direction: column;
+  }
+  .Title{
+    font-size: 2.1rem;
+  }
+
+  .Id{
+    display: none;
+  }
+
+  .ButtonHome{
+    flex-direction: row;
+    top: 0px;
+    align-items: center;
+    padding: 5px 12px;
+  }
+
+  .Health, .Time{
+    flex-direction: column;
+    gap: 0px;
+  }
+  .Divider{
+    height: 80px;
+  }
+
+  .MidContainer{
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .LeftInfo{
+    width: 75%;
+  }
+
+  .RightInfo{
+    width: 90%;
+    gap: 10px;
+  }
+  .Summary{
+    width: 85%;
+  }
+
+  .Types{
+    transform: scale(.75);
+  }
+
+  .ContainerTitleStep{
+    display: none;
+  }
+
+  .Diets{
+    flex-wrap: wrap;
+  }
+
+  .DTypes{
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+}

@@ -78,7 +78,7 @@
     width: 180px;
 }
 .ImgButtonAdd{
-    width: 100%;
+    width: 85%;
     animation: scale 5s ease-in-out infinite;
 }
 
@@ -111,4 +111,48 @@
     transition: .5s ease-in-out;
     background-color: #0E101C;
     cursor: pointer;
+}
+
+/* Media queries for mid-size devices (Laptop) */
+@media screen and (min-device-width: 1024px) and (max-device-width: 1424px) {
+    .CardsContainer, .Sort{
+        max-width: 1200px;
+    }
+    .Background{
+        bottom: -3%;
+    }
+} 
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .Background{
+        display: none;
+    }
+    .ButtonAdd{
+        font-size: 1.4rem;
+    }
+    
+    .ImgButtonAdd{
+        width: 80%;
+    }
+} 
+  
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .Background{
+    display: none;
+  }
+  .ButtonAddContainer{
+    width: 120px;
+    bottom: 88%;
+  }
+
+  .ButtonAdd{
+    font-size: 1.2rem;
+  }
+
+  .ImgButtonAdd{
+    width: 70%;
+  }
+  
 }

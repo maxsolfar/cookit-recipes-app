@@ -36,6 +36,17 @@
   }
 }
 
+@keyframes rotate-mobile {
+  0%{
+    background-position: 0px;
+ 
+  }
+  100%{
+    background-position: 380px; 
+  }
+}
+
+
 @keyframes forward{
   0%{
     transform: rotate(0deg);
@@ -81,4 +92,60 @@
   width: 14%;
   right: 0;
   bottom: 40%;
+}
+
+
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .SubTitle{
+    font-size: 2.2rem;
+  }
+  .Button{
+    font-size: 2.4rem;
+    padding: 12px 24px;
+  }
+  .FoodA{
+    width: 25%;
+  }
+  .FoodB{
+    width: 24%;
+    top: 5%;
+  }
+}
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .SubTitle{
+    font-size: 2rem;
+    width: 90%;
+  }
+  .Button{
+    font-size: 1.6rem;
+    padding: 12px 24px;
+  }
+  .Dish{
+    background-image: url("../../../assets/not-found/dishes-tiny-mobile.png");
+    width: 127px;
+    height: 127px;
+    z-index: 4;
+    animation: rotate-mobile 7s steps(3) infinite,
+                forward 50s linear infinite;
+  }
+  .FoodA{
+    width: 35%;
+  }
+  .FoodB{
+    width: 34%;
+    top: 5%;
+  }
+  .Title{
+    font-size: 13rem;
+  }
+  .ContainerTitle{
+    height: 65vh;
+  }
+  .Topside{
+    gap: 10px;
+  }
 }

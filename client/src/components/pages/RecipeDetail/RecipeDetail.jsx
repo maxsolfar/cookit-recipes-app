@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { getRecipeDetail, refreshErrors} from "../../../redux/actions";
+import { getRecipeDetail, refreshErrors, deleteRecipe, editRecipe, setErrors, getAllRecipes, getPage} from "../../../redux/actions";
 import Loader from "../../molecules/Loader/Loader";
 import Modal from "../../molecules/Modal/Modal";
 
@@ -13,6 +13,7 @@ import iconTime from "../../../assets/cards/icon-time.png";
 import steps from "../../../assets/detail/steps.png";
 import iconHome from "../../../assets/create/icon-left.png";
 import noIdRecipe from "../../../assets/detail/id-error.png";
+import deletedRecipe from "../../../assets/detail/delete-icon.png";
 
 
 function RecipeDetail() {
@@ -27,7 +28,22 @@ function RecipeDetail() {
     navigate("/recipes");
   }
 
-  
+  function deleteItem(e) {
+    e.preventDefault();
+    dispatch(deleteRecipe(recipeDetail.id));
+    dispatch(setErrors("DELETED_ITEM"));
+  }
+
+  function editItem(e) {
+    e.preventDefault();
+    dispatch(editRecipe(recipeDetail.id));
+  }
+
+  function cleanError() {
+    dispatch(getAllRecipes());
+    dispatch(getPage(1));
+    backHome();
+  }
 
   useEffect(() => {
     dispatch(getRecipeDetail(idRecipe));
@@ -53,7 +69,17 @@ function RecipeDetail() {
 
   return (
     <>
-      
+      {errors === "DELETED_ITEM" &&
+        <Modal>
+          <img className={styles.imgModal} src={deletedRecipe}  alt="recipe-created-img"/>
+          <h2 className={styles.TitleModal}>Deleted Recipe</h2>
+          <span className={styles.TextModal}>Recipe has been successfully deleted</span>
+          <div className={styles.ButtonContainer} >
+            <button className={styles.ButtonOk} onClick={(e)=> cleanError(e)}>Ok</button>
+          </div>
+        </Modal>
+      }
+    
       {errors === "ERROR_ID" &&
         <Modal>
           <img className={styles.imgModal} src={noIdRecipe}  alt="recipe-created-img"/>
@@ -64,6 +90,7 @@ function RecipeDetail() {
           </div>
         </Modal>
       }
+
       {recipeDetail.id === undefined ? (
         <div className={styles.LoadingContainer}>
           <Loader />
@@ -151,7 +178,6 @@ function RecipeDetail() {
               <section className={styles.Steps}>
         
                 <div className={styles.ContainerTitleStep}>
-                  {/* <h4 className={styles.TitleSteps}>Step by Step</h4> */}
                   <img src={steps} alt="step-img" />
                 </div>
                 
@@ -178,7 +204,12 @@ function RecipeDetail() {
 
           </section>
           
-            
+          {recipeDetail.created &&
+            <div className={styles.ButtonsBottom}>
+              <button onClick={(e) => deleteItem(e)} className={styles.DeleteRecipe}>Delete Recipe</button>
+              <button onClick={(e) => editItem(e)} className={styles.EditRecipe}>Edit Recipe</button>
+            </div>
+          }
 
 
           </div>

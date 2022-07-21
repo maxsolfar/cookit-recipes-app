@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./SearchBar.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipesByName, getPage, setErrors, refreshErrors} from "../../../redux/actions";
+import { getRecipesByName, getPage, setErrors, refreshErrors, activeDiet} from "../../../redux/actions";
 
 import chefHat from "../../../assets/searchbar/chef-hat.svg";
 import ErrorImg from "../../../assets/searchbar/icon-error.png";
@@ -33,6 +33,7 @@ function SearchBar({paginate}) {
         setTimeout(()=>{
         paginate(1);
         dispatch(getPage(1));
+        dispatch(activeDiet());
         }
         ,1500)  
       }

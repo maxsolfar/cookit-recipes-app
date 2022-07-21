@@ -233,3 +233,84 @@
   width: 20px;
   height: 20px;
 }
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 1024px) and (max-device-width: 1424px) {
+  .Aside{
+      width: 21%;
+  }
+} 
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .Card, .RightCard{
+    gap: 20px;
+  }
+  .Card{
+    padding: 10px;
+  }
+  .Aside{
+    width: 40%;
+  }
+  .Diets{
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .Summary{
+    font-size: 1.3rem;
+  }
+  .LeafIcon{
+    display: none;
+  }
+} 
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .Card{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .RightCard{
+    flex-direction: column;
+  }
+
+  .LeafIcon{
+    display: none;
+  }
+
+  .Title{
+    font-size: 1.8rem;
+  }
+
+  .Info{
+    width: 100%;
+  }
+  .Types{
+    gap: 10px;
+    transform: scale(.85);
+  }
+  .Diets{
+    display: none;
+  }
+
+  .Aside{
+    width: 100%;
+    gap: 8px;
+    padding: 5px 10px;
+  }
+
+  .Health,.Time{
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+  }
+  .HealthScore, .Minutes{
+    line-height: 1.3rem;
+    margin-top: 0px;
+  }
+
+  .RightCard{
+    gap: 10px;
+  }
+
+}

@@ -3,27 +3,33 @@ import {
   GET_RECIPES_NAME,
   GET_RECIPE_DETAIL,
   POST_RECIPES,
+  DELETE_RECIPE,
+  UPDATE_RECIPE,
   GET_DIETS,
   GET_CUISINES,
   GET_DISHTYPES,
   CURRENT_PAGE,
+  NUMBER_PAGES,
   REFRESH_DATA,
   SORT_BY_NAME,
   SORT_BY_SCORE,
   FILTER_BY_DIET,
   FILTER_BY_ORIGIN,
   SET_ERRORS,
+  CURRENT_DIET,
 } from "./actions";
 
 const initialState = {
   allRecipes: [],
   recipes: [],
   currentRecipe: {},
+  currentDiet: "",
   diets: [],
   cuisines: [],
   dishtypes: [],
   recipeDetail: {},
   savedPage: 1,
+  numberPages: 6,
   errors: "",
 };
 
@@ -47,7 +53,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
         ...state,
         recipeDetail: payload,
       };
-
     
     case GET_DIETS:
       return {
@@ -73,11 +78,28 @@ export default function rootReducer(state = initialState, { type, payload }) {
         currentRecipe: payload,
       };
 
+    case DELETE_RECIPE:
+      return {
+        ...state,
+      };
+          
+    case UPDATE_RECIPE:
+      return {
+        ...state,
+        currentRecipe: payload,
+      };
+
     case CURRENT_PAGE:
       return {
         ...state,
         savedPage: payload,
       };
+
+    case NUMBER_PAGES:
+      return {
+        ...state,
+        numberPages: payload,
+      }
 
     case REFRESH_DATA:
       return {
@@ -122,7 +144,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
     case FILTER_BY_DIET:
       return {
         ...state,
-        recipes: state.allRecipes.filter((recipe) => {
+        recipes: state.recipes.filter((recipe) => {
           if (recipe.created === true) {
             let DB = recipe.diets.map((diet) => diet.name).includes(payload);
             return DB;
@@ -145,11 +167,29 @@ export default function rootReducer(state = initialState, { type, payload }) {
         }) 
     }
 
+    /* case CURRENT_DIETS:
+      return { 
+        ...state,
+        currentDiets: [...state.currentDiets, payload],
+    };
+
+    case CLEAN_DIET:
+      return { 
+        ...state,
+        currentDiets: state.currentDiets.filter((diet)=> diet !== payload)
+    }; */
+
+    case CURRENT_DIET:
+      return { 
+        ...state,
+        currentDiet: payload,
+    };
+
     case SET_ERRORS:
       return {
         ...state,
         errors: payload,
-      };
+    };
 
     default:
       return state;

@@ -49,6 +49,16 @@
   }
 }
 
+@keyframes rotate-tablet {
+  0%{
+    background-position: 0px;
+ 
+  }
+  100%{
+    background-position: 750px; 
+  }
+}
+
 @keyframes forward{
   0%{
     transform: rotate(0deg);
@@ -76,4 +86,46 @@
   color: var(--main-color);
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .Dish{
+    background-image: url("../../../assets/header/dishes-tablet.png");
+    width: 250px;
+    height: 250px;
+    animation: rotate-tablet 7s steps(3) infinite,
+                forward 50s linear infinite;
+  }
+
+  .Header{
+    height: 420px;
+  }
+  .Title{
+    font-size: 3.8rem;
+  }
+  .Subtitle{
+    font-size: 2.2rem;
+  }
+} 
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .Header{
+    flex-direction: column;
+    height: 400px;
+  }
+  .RightSide{
+    display: none;
+  }
+  .Title{
+    font-size: 3rem;
+  }
+  .Subtitle{
+    font-size: 1.8rem;
+  }
+  .Paint{
+    top: -5%;
+  }
 }

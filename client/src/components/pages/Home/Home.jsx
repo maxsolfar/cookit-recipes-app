@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getAllRecipes, getPage } from "../../../redux/actions";
+import { getAllRecipes, getPage} from "../../../redux/actions";
 
 import CardsGrid from "../../organisms/CardsGrid/CardsGrid";
 
@@ -15,6 +15,7 @@ function Home() {
     if (allRecipes.length === 0) {
       dispatch(getAllRecipes());
       dispatch(getPage(1));
+
     }
   }, [dispatch, allRecipes]);
 

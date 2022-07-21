@@ -451,7 +451,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .Step{
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .StepButtonAdd button{
@@ -462,7 +461,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   font-weight: 500;
   padding: 10px 20px;
   border-radius: 7px;
-  margin-top: -10px;
+  margin-top: 20px;
   transition: .9s ease-in-out;
 }
 
@@ -546,7 +545,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .StepCount{
   flex: 0 1 10%;
   color: #3EA76C;
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 500;
 }
 
@@ -644,4 +643,130 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 .WithSteps{
   display: none;
+}
+
+/* Media queries for mid-size devices (Laptop) */
+@media screen and (min-device-width: 1024px) and (max-device-width: 1424px) {
+  .ImageRecipe{
+    height: auto;
+  }
+} 
+
+/* Media queries for mid-size devices (Tablet) */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .Aside{
+    display: none;
+  }
+  .CreateFormContainer{
+    width: 95%;
+    margin-top: 20px;
+  }
+  .FormTop{
+    gap: 20px;
+  }
+  .ImageRecipe{
+    height: auto;
+  }
+  .ButtonHome{
+    flex-direction: row;
+    top: 0px;
+    align-items: center;
+    padding: 5px 12px;
+  }
+  .Form{
+    padding-bottom: 40px;
+  }
+  .ContainerMin{
+    display: none;
+  }
+  .ContainerRange{
+    flex: 0 1 100%;
+  }
+} 
+
+/* Media queries for small-size devices (Mobile) */
+@media screen and (max-device-width: 600px) {
+  .Aside{
+    display: none;
+  }
+  .CreateForm{
+    padding: 0;
+  }
+  .CreateFormContainer{
+    width: 95%;
+    margin-top: 20px;
+  }
+  .ButtonHome{
+    flex-direction: row;
+    top: 0px;
+    align-items: center;
+    padding: 5px 12px;
+  }
+  .Form{
+    padding-bottom: 20px;
+  }
+  .FormTop{
+    flex-direction: column;
+  }
+  .ContainerMin{
+    display: none;
+  }
+  .ContainerRange{
+    flex: 0 1 100%;
+  }
+  .ImageRecipe{
+    height: auto;
+  }
+  .ButtonSubmit{
+    width: 90%;
+  }
+  .BackBottom{
+    display: none;
+  }
+
+  .NoSteps{
+    width: 60%;
+  }
+
+  .ContainerStepInput{
+    height: 420px;
+  }
+
+  .OutputContainerStep{
+    height: 250px;
+  }
+
+  .healthScoreLabel{
+    align-self: flex-end;
+  }
+
+  .Errors{
+    font-size: 1rem;
+  }
+
+  .TitleSteps{
+    font-size: 2rem;
+  }
+
+  .FormTop{
+    gap: 20px;
+  }
+
+  .NothingYet{
+    width: 55%;
+  }
+
+  .ContainerRange h3{
+    font-size: 1.4rem;
+  }
+
+  .TitleModal{
+    font-size: 2.4rem;
+  }
+  .TextModal{
+    font-size: 1.4rem;
+  }
+  .ButtonRecipe{
+    padding: 8px 30px;
+  }
 }
