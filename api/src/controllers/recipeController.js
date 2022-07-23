@@ -20,24 +20,24 @@ const getAllRecipes = async (req, res, next) => {
             data.title.toLowerCase().includes(name.toLowerCase())
           );
           const dataByName = [...dataDBFilter, ...dataAPIFilter];
-          res.send(dataByName);
+          return res.send(dataByName);
           
         } catch (error) {
-          res.status(404).send(`Recipes with name: ${name}: ${error}`);
+          return res.status(404).send(`Recipes with name: ${name}: ${error}`);
         }
       } else {
         if (!dataDB || dataDB.length === 0) {
-          res.status(200).send(dataAPI);
+          return res.status(200).send(dataAPI);
         } else if (!dataAPI || dataAPI.length === 0) {
-          res.status(200).send(dataDB);
+          return res.status(200).send(dataDB);
         } else {
           const allDataRecipes = [...dataAPI, ...dataDB];
-          res.status(200).send(allDataRecipes);
+          return res.status(200).send(allDataRecipes);
         }
       }
     });
   } catch (error) {
-    res.status(400).send(`Can't get Recipes: ${error}`);
+    return res.status(400).send(`Can't get Recipes: ${error}`);
   }
 };
 
@@ -51,14 +51,14 @@ const getRecipeDetail = async (req, res, next) => {
       if(idRecipe.length > 8){
         const DBData = await getDBData();
         const findDB = DBData?.find((data) => data.id === idRecipe);
-        res.status(200).send(findDB);
+        return res.status(200).send(findDB);
       }
       else {
         const APIData = await getAPIDataDetail(idRecipe);
-        res.status(200).send(APIData);
+        return res.status(200).send(APIData);
       }
     } catch (error) {
-      res.status(400).send({ error: "The Recipe doesn't exist" });
+      return res.status(400).send({ error: "The Recipe doesn't exist" });
     }
   }
 };
@@ -84,7 +84,7 @@ const postRecipe = async (req, res, next) => {
     !diets ||
     !readyInMinutes
   ) {
-    res.status(400).send({ error: "Missing data in the request" });
+    return res.status(400).send({ error: "Missing data in the request" });
   }
 
   try {
@@ -113,9 +113,9 @@ const postRecipe = async (req, res, next) => {
     await newRecipe.addDishTypes(dishTypesDb);
     await newRecipe.addCuisines(cuisinesDb);
 
-    res.send(newRecipe);
+    return res.send(newRecipe);
   } catch (error) {
-    res.status(400).send({ error: `Can't add new recipe ${error}` });
+    return res.status(400).send({ error: `Can't add new recipe ${error}` });
   }
 };
 
@@ -129,7 +129,7 @@ const deleteRecipe = async (req, res, next) => {
       return res.status(200).send("Recipe was Delete");
     }
   } catch (error) {
-    res.status(400).send({ error: "Can't Delete the recipe" });
+    return res.status(400).send({ error: "Can't Delete the recipe" });
   }
 };
 
@@ -180,7 +180,7 @@ const editRecipe = async (req, res, next) => {
     return res.status(200).send(recipeUpdate);
     
   } catch (error) {
-    res.status(400).send({ error: "Can't Update the recipe" + error } );
+    return res.status(400).send({ error: "Can't Update the recipe" + error } );
   }
 };
 
