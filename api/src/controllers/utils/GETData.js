@@ -57,7 +57,7 @@ const getAPIDataDetail = async (id) => {
     };
     return Recipe;
   } catch (error) {
-    console.log(`GET API DATA ${error}`);
+    console.log(`GET API DATA DETAIL ${error}`);
   }
 };
 

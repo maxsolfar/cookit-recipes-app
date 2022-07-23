@@ -48,11 +48,12 @@ const getRecipeDetail = async (req, res, next) => {
   const { idRecipe } = req.params;
   if (idRecipe) {
     try {
-      const DBData = await getDBData();
-      const findDB = DBData?.find((data) => data.id === idRecipe);
-      if (findDB) {
+      if(idRecipe.length > 8){
+        const DBData = await getDBData();
+        const findDB = DBData?.find((data) => data.id === idRecipe);
         res.status(200).send(findDB);
-      } else {
+      }
+      else {
         const APIData = await getAPIDataDetail(idRecipe);
         res.status(200).send(APIData);
       }
@@ -61,49 +62,6 @@ const getRecipeDetail = async (req, res, next) => {
     }
   }
 };
-
-/* const getRecipeDetail = async (req, res, next) => {
-  const { idRecipe } = req.params;
-  if (idRecipe) {
-    try {
-      if(idRecipe.length > 8){
-      let DBData = await Recipe.findByPk(idRecipe,{
-        include: [
-          {
-            model: Diet,
-            attributes: ["name"],
-            through: {
-              attributes: [],
-            },
-          },
-          {
-            model: Cuisine,
-            attributes: ["name"],
-            through: {
-              attributes: [],
-            },
-          },
-          {
-            model: DishType,
-            attributes: ["name"],
-            through: {
-              attributes: [],
-            },
-          },
-        ],
-      });
-      return res.status(200).send(DBData);
-     }
-      else {
-        const APIData = await getAPIDataDetail(idRecipe);
-        return res.status(200).send(APIData);
-
-      }
-    } catch (error) {
-      return res.status(400).send({ error: "The Recipe doesn't exist" });
-    }
-  }
-}; */
 
 const postRecipe = async (req, res, next) => {
   const {
@@ -225,10 +183,6 @@ const editRecipe = async (req, res, next) => {
     res.status(400).send({ error: "Can't Update the recipe" + error } );
   }
 };
-
-
-  
-
 
 module.exports = {
   getAllRecipes,

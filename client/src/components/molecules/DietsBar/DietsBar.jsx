@@ -37,20 +37,6 @@ function DietsBar({paginate}) {
     var slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft + 130;
   }
-
- /*  function handleSubmit(diet){
-    if(currentDiet.includes(diet)){
-      dispatch(cleanDiet(diet));
-    }
-    else{
-      paginate(1);
-      dispatch(getPage(1));
-      dispatch(filterByDiet(diet));
-      dispatch(activeDiet(diet));
-    }
-   
-  }
- */
   function handleSubmit(diet){
     if(currentDiet === diet){
       dispatch(activeDiet());

@@ -167,18 +167,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
         }) 
     }
 
-    /* case CURRENT_DIETS:
-      return { 
-        ...state,
-        currentDiets: [...state.currentDiets, payload],
-    };
-
-    case CLEAN_DIET:
-      return { 
-        ...state,
-        currentDiets: state.currentDiets.filter((diet)=> diet !== payload)
-    }; */
-
     case CURRENT_DIET:
       return { 
         ...state,

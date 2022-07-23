@@ -15,7 +15,6 @@ function SortSelect({paginate}) {
     dataFrom: "",
   }
   const [filterSelects, setFilterSelects] = useState(initialSelects); 
-  const [newSearch, setNewSearch] = useState(false); 
 
   function handleChange(e){
     e.preventDefault();

@@ -69,20 +69,7 @@ function Card(
               <caption className={diets.includes("dairy free")  ? styles.DairyFree : styles.DairyFreeDec}></caption>
               <b>Dairy Free</b>
               </div>
-            </div>
-            
-            {/* <div className={styles.BottomCard}>
-                <div className={styles.DietsRecipe}>
-                  <h4>Diet Types:</h4>
-                </div>
-                <section className={styles.Diets}>
-                  { diets && diets?.map((diet) => (
-                  diet.hasOwnProperty("name")
-                  ? <span className={styles.Diet}>{diet.name}</span>
-                  : <span className={styles.Diet}>{diet}</span>
-                  ))} 
-                </section>
-            </div> */}
+            </div>  
           </div>
           <div className={styles.Aside}>
             <div className={styles.Health}>
