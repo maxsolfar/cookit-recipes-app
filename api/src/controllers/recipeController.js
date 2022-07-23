@@ -1,4 +1,3 @@
-const axios = require("axios");
 const { Recipe, Diet, Cuisine, DishType } = require("../db");
 const { getAPIData, getDBData, getAPIDataDetail } = require("./utils/getData");
 

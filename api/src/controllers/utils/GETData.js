@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { Recipe, Diet, Cuisine, DishType } = require("../../db");
-const { URL_RECIPES, URL_RECIPES_INFO } = require("./APIAccess");
+const { URL_RECIPES, URL_RECIPES_INFO } = require("./apiAccess");
 const { API_KEY } = process.env;
 
 /*Number of recipes requested*/
