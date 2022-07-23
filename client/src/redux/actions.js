@@ -33,7 +33,7 @@ export const SET_ERRORS = "SET_ERRORS";
 function getAllRecipes() {
   return async function (dispatch) {
     try {
-      const allRecipes = await axios.get("http://localhost:3001/recipes");
+      const allRecipes = await axios.get("/recipes");
       return dispatch({
         type: GET_RECIPES,
         payload: allRecipes.data,
@@ -48,7 +48,7 @@ function getRecipesByName(name) {
   return async function (dispatch) {
     try {
       const recipesByName = await axios.get(
-        `http://localhost:3001/recipes?name=${name}`
+        `/recipes?name=${name}`
       );
       if(recipesByName.data.length > 0)
       {
@@ -74,7 +74,7 @@ function getRecipeDetail(id){
   return async function (dispatch) {
     if(id){
       try {
-        const recipeDetail = await axios.get(`http://localhost:3001/recipes/${id}`);
+        const recipeDetail = await axios.get(`/recipes/${id}`);
         if(recipeDetail.data){
           return dispatch({
             type: GET_RECIPE_DETAIL,
@@ -104,7 +104,7 @@ function getRecipeDetail(id){
 function deleteRecipe(id){
   return async function (dispatch) {
     try {
-      await axios.delete(`http://localhost:3001/recipes/${id}`);
+      await axios.delete(`/recipes/${id}`);
       return dispatch({
         type: DELETE_RECIPE,
       });
@@ -118,7 +118,7 @@ function deleteRecipe(id){
 function editRecipe(id){
   return async function (dispatch) {
     try {
-      const updatedRecipe = await axios.put(`http://localhost:3001/recipes/${id}`);
+      const updatedRecipe = await axios.put(`/recipes/${id}`);
       console.log(updatedRecipe);
       return dispatch({
         type: UPDATE_RECIPE,
@@ -136,7 +136,7 @@ function editRecipe(id){
 function getDiets(){
   return async function (dispatch) {
     try {
-      const diets = await axios.get("http://localhost:3001/diets");
+      const diets = await axios.get("/diets");
       return dispatch({
         type: GET_DIETS,
         payload: diets.data,
@@ -151,7 +151,7 @@ function getDiets(){
 function getCuisines(){
   return async function (dispatch) {
     try {
-      const cuisines = await axios.get("http://localhost:3001/cuisines");
+      const cuisines = await axios.get("/cuisines");
       return dispatch({
         type: GET_CUISINES,
         payload: cuisines.data,
@@ -166,7 +166,7 @@ function getCuisines(){
 function getDishTypes(){
   return async function (dispatch) {
     try {
-      const dishTypes = await axios.get("http://localhost:3001/dishtypes");
+      const dishTypes = await axios.get("/dishtypes");
       return dispatch({
         type: GET_DISHTYPES,
         payload: dishTypes.data,
@@ -181,7 +181,7 @@ function getDishTypes(){
 function postRecipe(data) {
   return async function (dispatch) {
     try {
-      const addRecipe = await axios.post("http://localhost:3001/recipes", data);
+      const addRecipe = await axios.post("/recipes", data);
       return dispatch({
         type: POST_RECIPES,
         payload: addRecipe,
