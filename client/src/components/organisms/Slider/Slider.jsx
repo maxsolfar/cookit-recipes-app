@@ -24,7 +24,6 @@ function Slider() {
     const interval = setInterval(()=>{
         nextSlide();        
     }, 2500);
-    console.log("entre");
     return () => clearInterval(interval);
   });
 

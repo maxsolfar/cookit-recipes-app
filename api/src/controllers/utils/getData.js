@@ -1,17 +1,18 @@
 const axios = require("axios");
 const { Recipe, Diet, Cuisine, DishType } = require("../../db");
 const { URL_RECIPES, URL_RECIPES_INFO } = require("./apiAccess");
-const { API_KEY } = process.env;
+const randomKey = require("./chooseApiKey");
 
 /*Number of recipes requested*/
 const nRecipes = 108;
 
 const getAPIData = async () => {
   try {
+    const apiKey = randomKey(1,18);
     const APIData = await axios.get(
-      `${URL_RECIPES}apiKey=${API_KEY}&number=${nRecipes}`
+      `${URL_RECIPES}apiKey=${apiKey}&number=${nRecipes}`
     );
-
+    
     let apiRecipes = [];
     APIData &&
       APIData.data.results?.map((recipe) => {
@@ -36,8 +37,9 @@ const getAPIData = async () => {
 
 const getAPIDataDetail = async (id) => {
   try {
+    const apiKey = randomKey(1,18);
     const APIData = await axios.get(
-      `${URL_RECIPES_INFO}${id}/information?apiKey=${API_KEY}`
+      `${URL_RECIPES_INFO}${id}/information?apiKey=${apiKey}`
     );
       let Recipe = {
       id: APIData.data.id,

@@ -114,6 +114,13 @@
 }
 
 /* Media queries for mid-size devices (Laptop) */
+@media screen and (min-device-width: 1424px) and (max-device-width: 2804px) {
+    .ButtonAddContainer{
+        bottom: 2%;
+    }
+} 
+
+/* Media queries for mid-size devices (Laptop) */
 @media screen and (min-device-width: 1024px) and (max-device-width: 1424px) {
     .CardsContainer, .Sort{
         max-width: 1200px;
