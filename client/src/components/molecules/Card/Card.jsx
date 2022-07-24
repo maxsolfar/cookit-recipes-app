@@ -26,10 +26,10 @@ function Card(
         <div className={styles.LeftCard}>
           <img className={styles.ImgCard} src={image} alt="character-img" />
           <section className={styles.Cuisines}>
-              { cuisines && cuisines?.map((cuisine) => (
+              { cuisines && cuisines?.map((cuisine,index) => (
                 cuisine.hasOwnProperty("name")
-                ? <span className={styles.Cuisine}>{cuisine.name}</span>
-                : <span className={styles.Cuisine}>{cuisine}</span>
+                ? <span key={index} className={styles.Cuisine}>{cuisine.name}</span>
+                : <span key={index} className={styles.Cuisine}>{cuisine}</span>
               ))}
           </section>
         </div>
@@ -43,8 +43,8 @@ function Card(
        
               <div className={styles.BottomCard}>
                 <section className={styles.Diets}>
-                  { diets && diets?.map((diet) => (
-                    <span className={styles.Diet}>{diet}</span>
+                  { diets && diets?.map((diet, index) => (
+                    <span key={index} className={styles.Diet}>{diet}</span>
                   ))} 
                 </section>
             </div>
@@ -54,19 +54,19 @@ function Card(
             </div>
             <div className={styles.Types}>
               <div>
-              <caption className={diets.includes("lacto ovo vegetarian") ? styles.Vegetarian : styles.VegetarianDec}></caption>
+              <figure className={diets.includes("lacto ovo vegetarian") ? styles.Vegetarian : styles.VegetarianDec}></figure>
               <b>Vegetarian</b>
               </div>
               <div>
-              <caption className={diets.includes("vegan") ? styles.Vegan : styles.VeganDec}></caption>
+              <figure className={diets.includes("vegan") ? styles.Vegan : styles.VeganDec}></figure>
               <b>Vegan</b>
               </div>
               <div>
-              <caption className={diets.includes("gluten free") ? styles.GlutenFree : styles.GlutenFreeDec}></caption>
+              <figure className={diets.includes("gluten free") ? styles.GlutenFree : styles.GlutenFreeDec}></figure>
               <b>Gluten Free</b>
               </div>
               <div>
-              <caption className={diets.includes("dairy free")  ? styles.DairyFree : styles.DairyFreeDec}></caption>
+              <figure className={diets.includes("dairy free")  ? styles.DairyFree : styles.DairyFreeDec}></figure>
               <b>Dairy Free</b>
               </div>
             </div>  

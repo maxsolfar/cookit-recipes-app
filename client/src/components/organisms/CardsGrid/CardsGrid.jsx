@@ -91,8 +91,9 @@ function CardsGrid() {
         </div>
         
         <section className={styles.CardsContainer}>
-        {currentRecipes && currentRecipes?.map((recipe)=>(
+        {currentRecipes && currentRecipes?.map((recipe,index)=>(
           <Card 
+            key={index}
             id={recipe.id}
             title={recipe.title}
             summary={recipe.summary}

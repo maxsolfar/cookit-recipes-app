@@ -24,7 +24,7 @@ function Header({paginate}) {
           </div>
         </div>
         <div className={styles.RightSide}>
-          <caption className={styles.Dish} ></caption>
+          <figure className={styles.Dish} ></figure>
         </div>
       </section>
     </>

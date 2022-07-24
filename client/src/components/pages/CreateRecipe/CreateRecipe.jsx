@@ -332,7 +332,7 @@ function CreateRecipe() {
                   <div className={styles.SelectContainerRange}>
                     
                     <div className={styles.ContainerRange}>
-                    <h3>Ready in & Score for the recipe</h3>
+                    <h3>Score & Preparation time</h3>
                     <div className={styles.InputContainerRange}>
                       <span className={inputErrors.healthScore ? styles.Errors : styles.NoErrors}>
                         {inputErrors.healthScore}
@@ -348,7 +348,7 @@ function CreateRecipe() {
                         onChange={(e) => handleChange(e)}
                       />
                       <span className={styles.healthScoreLabel}>
-                        HealthScore: {input.healthScore}
+                        HealthScore: <b>{input.healthScore}</b>
                       </span>
                       </div>
                       <div className={styles.InputContainer}>
@@ -408,7 +408,7 @@ function CreateRecipe() {
                     <img className={input.steps.length > 0 ? styles.WithSteps : styles.NoSteps} src={NoSteps} alt="no-steps-yet" />
                     {input.steps.length > 0 &&
                       input.steps?.map((step, index) => (
-                        <div className={styles.ContainerListStep}>
+                        <div key={index} className={styles.ContainerListStep}>
                           <span className={styles.StepCount}>
                             Step {index + 1}
                           </span>
@@ -473,12 +473,12 @@ function CreateRecipe() {
                         handleSelect(e);
                       }}
                     >
-                      <option value="" disabled selected hidden>
+                      <option value="" disabled defaultValue hidden>
                         Recipe´s Cuisines:
                       </option>
                       {cuisines &&
-                        cuisines?.map((cuisine) => (
-                          <option value={cuisine.name} key={cuisine.id}>
+                        cuisines?.map((cuisine, index) => (
+                          <option value={cuisine.name} key={index}>
                             {cuisine.name}
                           </option>
                         ))}
@@ -489,7 +489,7 @@ function CreateRecipe() {
                   <img className={input.cuisines.length > 0 ? styles.WithSteps : styles.NothingYet} src={NothingYet} alt="nothing-yet" />
                     {input.cuisines.length > 0 &&
                       input.cuisines?.map((cuisine, index) => (
-                        <div className={styles.ContainerList}>
+                        <div key={index} className={styles.ContainerList}>
                           <span className={styles.OutputLabel}>{cuisine}</span>
                           {input.cuisines.length > 0 && (
                             <button
@@ -517,12 +517,12 @@ function CreateRecipe() {
                         handleSelect(e);
                       }}
                     >
-                      <option value="" disabled selected hidden>
+                      <option value="" disabled defaultValue hidden>
                         Recipe´s Dish Types:
                       </option>
                       {dishtypes &&
-                        dishtypes?.map((dishtype) => (
-                          <option value={dishtype.name} key={dishtype.id}>
+                        dishtypes?.map((dishtype, index) => (
+                          <option value={dishtype.name} key={index}>
                             {dishtype.name}
                           </option>
                         ))}
@@ -533,7 +533,7 @@ function CreateRecipe() {
                   <img className={input.dishTypes.length > 0 ? styles.WithSteps : styles.NothingYet} src={NothingYet} alt="nothing-yet" />
                     {input.dishTypes.length > 0 &&
                       input.dishTypes?.map((dishType, index) => (
-                        <div className={styles.ContainerList}>
+                        <div key={index} className={styles.ContainerList}>
                           <span className={styles.OutputLabel}>{dishType}</span>
                           {input.dishTypes.length > 0 && (
                             <button
@@ -561,12 +561,12 @@ function CreateRecipe() {
                         handleSelect(e);
                       }}
                     >
-                      <option value="" disabled selected hidden>
+                      <option value="" disabled defaultValue hidden>
                         Recipe´s Diets:
                       </option>
                       {diets &&
-                        diets?.map((diet) => (
-                          <option value={diet.name} key={diet.id}>
+                        diets?.map((diet, index) => (
+                          <option value={diet.name} key={index}>
                             {diet.name}
                           </option>
                         ))}
@@ -577,7 +577,7 @@ function CreateRecipe() {
                   <img className={input.diets.length > 0 ? styles.WithSteps : styles.NothingYet} src={NothingYet} alt="nothing-yet" />
                     {input.diets.length > 0 &&
                       input.diets?.map((diet, index) => (
-                        <div className={styles.ContainerList}>
+                        <div key={index} className={styles.ContainerList}>
                           <span className={styles.OutputLabel}>{diet}</span>
                           {input.diets.length > 0 && (
                             <button

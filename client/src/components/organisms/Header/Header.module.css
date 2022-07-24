@@ -25,6 +25,10 @@
   height: 100%;
 }
 
+.DietContainer{
+  text-align: center;
+}
+
 .RightSide{
   flex: 0 1 30%;
 }
@@ -115,17 +119,20 @@
   .Header{
     flex-direction: column;
     height: 400px;
+    padding: 5px;
   }
   .RightSide{
     display: none;
   }
   .Title{
-    font-size: 3rem;
+    font-size: 2.9rem;
+    text-align: center;
   }
   .Subtitle{
     font-size: 1.8rem;
+    text-align: center;
   }
   .Paint{
-    top: -5%;
+    display: none;
   }
 }

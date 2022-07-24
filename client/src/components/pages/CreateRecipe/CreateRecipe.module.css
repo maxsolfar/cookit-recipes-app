@@ -16,7 +16,8 @@
 .CreateFormContainer,
 .ContainerRange,
 .FormLeft,
-.OutputContainerStep{
+.OutputContainerStep,
+.StepButtonAdd{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,8 +136,7 @@
 
 .SelectContainerRange{
   justify-content: space-between;
-  align-items: flex-end;
- 
+  align-items: center;
 }
 
 .ContainerRange{
@@ -152,11 +152,11 @@
 
 .ContainerRange h3{
   color: var(--clear-color);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 500;
   background-color: #3EA76C;
   width: 100%;
-  padding: 3px;
+  padding: 3px 0px 3px 10px;
 }
 
 .ContainerMin{
@@ -227,6 +227,13 @@
   font-size: 1.4rem;
   font-weight: 500;
   color: var(--dark-color);
+  align-self: flex-end;
+}
+
+.healthScoreLabel b{
+  color: #3EA76C;
+  font-weight: 600;
+  font-size: 1.6rem;
 }
 
 input[type=range]{

@@ -129,10 +129,10 @@ function RecipeDetail() {
                 <section className={styles.DishTypes}>
                   <h3>Dish Types:</h3>
                   <div className={styles.DTypes}>
-                    { recipeDetail.dishTypes && recipeDetail.dishTypes?.map((dish) => (
+                    { recipeDetail.dishTypes && recipeDetail.dishTypes?.map((dish,index) => (
                       recipeDetail.created === true
-                      ? <span className={styles.DishType}><i className={styles.IconDish}></i>{dish.name}</span>
-                      : <span className={styles.DishType}><i className={styles.IconDish}></i>{dish}</span>
+                      ? <span key={index} className={styles.DishType}><i className={styles.IconDish}></i>{dish.name}</span>
+                      : <span key={index} className={styles.DishType}><i className={styles.IconDish}></i>{dish}</span>
                     ))}
                   </div>
                   
@@ -140,19 +140,19 @@ function RecipeDetail() {
                 <span className={styles.Summary} dangerouslySetInnerHTML={{ __html: recipeDetail.summary}}></span>
                 <div className={styles.Types}>
                   <div>
-                  <caption className={helper(recipeDetail.diets).includes("lacto ovo vegetarian") ? styles.Vegetarian : styles.VegetarianDec}></caption>
+                  <figure className={helper(recipeDetail.diets).includes("lacto ovo vegetarian") ? styles.Vegetarian : styles.VegetarianDec}></figure>
                   <b>Vegetarian</b>
                   </div>
                   <div>
-                  <caption className={helper(recipeDetail.diets).includes("vegan") ? styles.Vegan : styles.VeganDec}></caption>
+                  <figure className={helper(recipeDetail.diets).includes("vegan") ? styles.Vegan : styles.VeganDec}></figure>
                   <b>Vegan</b>
                   </div>
                   <div>
-                  <caption className={helper(recipeDetail.diets).includes("gluten free") ? styles.GlutenFree : styles.GlutenFreeDec}></caption>
+                  <figure className={helper(recipeDetail.diets).includes("gluten free") ? styles.GlutenFree : styles.GlutenFreeDec}></figure>
                   <b>Gluten Free</b>
                   </div>
                   <div>
-                  <caption className={helper(recipeDetail.diets).includes("dairy free") ? styles.DairyFree : styles.DairyFreeDec}></caption>
+                  <figure className={helper(recipeDetail.diets).includes("dairy free") ? styles.DairyFree : styles.DairyFreeDec}></figure>
                   <b>Dairy Free</b>
                   </div>
                 </div>
@@ -161,10 +161,10 @@ function RecipeDetail() {
                 
                 <img className={styles.ImgCard} src={recipeDetail.image} alt="character-img" />
                 <section className={styles.Cuisines}>
-                { recipeDetail.cuisines && recipeDetail.cuisines?.map((cuisine) => (
+                { recipeDetail.cuisines && recipeDetail.cuisines?.map((cuisine, index) => (
                   recipeDetail.created === true
-                  ? <span className={styles.Cuisine}>{cuisine.name}</span>
-                  : <span className={styles.Cuisine}>{cuisine}</span>
+                  ? <span key={index} className={styles.Cuisine}>{cuisine.name}</span>
+                  : <span key={index} className={styles.Cuisine}>{cuisine}</span>
                 ))}
               </section>
               </div>
@@ -184,7 +184,7 @@ function RecipeDetail() {
                 <div className={styles.StepContainer}>
                   <h4 className={styles.TitleSteps}><i className={styles.IconRecipe}></i>Step by Step</h4>
                   { recipeDetail.steps.length > 0 ? recipeDetail.steps?.map((step, index) => (
-                    <div className={styles.StepCont}>
+                    <div key={index} className={styles.StepCont}>
                       <span className={styles.IndexStep}>Step {index+1}</span>
                       <span className={styles.Step}>{step}</span>
                     </div>
@@ -194,10 +194,10 @@ function RecipeDetail() {
 
               <div className={styles.BottomCard}>
                 <section className={styles.Diets}>
-                  { recipeDetail.diets && recipeDetail.diets?.map((diet) => (
+                  { recipeDetail.diets && recipeDetail.diets?.map((diet,index) => (
                     recipeDetail.created === true
-                    ? <span className={styles.Diet}>{diet.name}</span>
-                    : <span className={styles.Diet}>{diet}</span>
+                    ? <span key={index} className={styles.Diet}>{diet.name}</span>
+                    : <span key={index} className={styles.Diet}>{diet}</span>
                   ))} 
                 </section>
               </div>

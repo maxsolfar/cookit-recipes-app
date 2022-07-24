@@ -59,7 +59,7 @@ function DietsBar({paginate}) {
         {recipes && recipes?.map((recipe, index) =>
           (
             <article key={index} className={currentDiet === recipe.value ? styles.DietActive : styles.Diet} onClick={() => handleSubmit(recipe.value)}>
-              <caption className={`${styles[recipe.icon]}`}></caption>
+              <figure className={`${styles[recipe.icon]}`}></figure>
               <h4 className={styles.TitleDiet}>{recipe.title}</h4>
             </article>
           )

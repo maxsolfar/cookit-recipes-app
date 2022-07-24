@@ -49,14 +49,14 @@ function SortSelect({paginate}) {
 
         <img onClick={(e)=> refreshRecipes(e)} className={styles.IconRefresh} src={refreshIcon} alt="" />
         <select className={styles.Select} value={filterSelects.sortName} onChange={handleChange} name="sortName">
-              <option value="" disabled selected hidden>Sort Name | Score:</option>
+              <option value="" disabled defaultValue  hidden>Sort Name | Score:</option>
               <option value="A-Z">A-Z</option>
               <option value="Z-A">Z-A</option>
               <option value="highest">High - Low</option>
               <option value="lowest">Low - High</option>
         </select>  
         <select className={styles.Select} value={filterSelects.dataFrom} onChange={handleChange} name="dataFrom">
-              <option value="" disabled selected hidden>Data from:</option>
+              <option value="" disabled defaultValue  hidden>Data from:</option>
               <option value="ALL">All Recipes</option>
               <option value="API">Recipes from API</option>
               <option value="DB">Recipes from DB</option>

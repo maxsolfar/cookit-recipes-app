@@ -23,7 +23,7 @@ function NotFound() {
           
           <div className={styles.Topside}>
             <h2 className={styles.Title}>4</h2>
-            <caption className={styles.Dish} ></caption>
+            <figure className={styles.Dish} ></figure>
             <h2 className={styles.Title}>4</h2>
           </div>
           <span className={styles.SubTitle}>This page you requested could not be found.</span>

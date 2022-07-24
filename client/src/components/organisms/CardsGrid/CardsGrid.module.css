@@ -68,8 +68,8 @@
 
 .ButtonAddContainer{
     position: fixed;
-    right: 1.7%;
-    bottom: 2%;
+    right: 2%;
+
     z-index: 10;
     display: flex;
     flex-direction: column;
@@ -119,7 +119,11 @@
         max-width: 1200px;
     }
     .Background{
-        bottom: -3%;
+        bottom: -5%;
+    }
+
+    .ButtonAddContainer{
+        bottom: 2%;
     }
 } 
 
@@ -135,6 +139,10 @@
     .ImgButtonAdd{
         width: 80%;
     }
+
+    .ButtonAddContainer{
+        bottom: 2%;
+    }
 } 
   
 /* Media queries for small-size devices (Mobile) */
@@ -142,9 +150,10 @@
   .Background{
     display: none;
   }
+
   .ButtonAddContainer{
     width: 120px;
-    bottom: 88%;
+    top:2%;
   }
 
   .ButtonAdd{
@@ -154,5 +163,6 @@
   .ImgButtonAdd{
     width: 70%;
   }
+
   
 }

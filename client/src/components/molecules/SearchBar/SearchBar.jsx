@@ -19,8 +19,10 @@ function SearchBar({paginate}) {
   function handleChange(e) {
     setSearch(e.target.value);
   }
-  function onKeyUp(e) {
-    if(e.charCode === 13) {
+
+  function onKeyUp(e, type) {
+    if(e.charCode === 13 || type === "search") {
+      console.log(type);
       if(e.target.value === ""){
         dispatch(setErrors("EMPTY_SEARCH"));
         setTimeout(()=>{
@@ -41,8 +43,11 @@ function SearchBar({paginate}) {
     
   }
 
+
   useEffect(()=>{
-    inputRef.current.focus();
+    if(window.innerWidth > 800){
+      inputRef.current.focus();
+    }  
   });
   
 
@@ -64,8 +69,8 @@ function SearchBar({paginate}) {
           onKeyPress={onKeyUp}
           onChange={(e) => handleChange(e)}
         />
-        <i className={styles.IconSearch}></i>
-
+       
+        <i className={styles.IconSearch} onClick={(e)=>onKeyUp(e,"search")}></i>
       </section>
     </>
   )
