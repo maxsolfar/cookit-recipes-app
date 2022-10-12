@@ -24,8 +24,8 @@
 .Background{
     position: absolute;
     left: 0;
-    bottom: 8%;
-  
+    bottom: 31%;
+    width: 100%;
     z-index: -1;
   }
 
@@ -114,9 +114,9 @@
 }
 
 /* Media queries for mid-size devices (Laptop) */
-@media screen and (min-device-width: 1424px) and (max-device-width: 2804px) {
+@media screen and (min-device-width: 1424px) {
     .ButtonAddContainer{
-        bottom: 2%;
+        bottom: 6%;
     }
 } 
 

@@ -105,7 +105,7 @@ function CardsGrid() {
           />
         ))}
         
-        <img className={styles.Background} src={background} alt="background-img" />
+        {/* <img className={styles.Background} src={background} alt="background-img" /> */}
         <section className={styles.ButtonAddContainer}>
           <img className={styles.ImgButtonAdd} src={imgButtonAdd} alt="background-img" />
           <button onClick={goNewRecipe} className={styles.ButtonAdd}>Add Recipe</button>
